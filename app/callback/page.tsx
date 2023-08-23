@@ -32,9 +32,10 @@ const Callback: React.FC = () => {
             }
         }).then((response: AxiosResponse<SpotifyResponse>) => {
             setCookie('spotifyAccessToken', response.data.access_token);
-            router.push(host + '/playlists');
+            router.push('/playlists');
         }).catch((error: AxiosError) => {
             console.log({ 'message': error.response?.data });
+            router.push('/');
         });
     })
 
